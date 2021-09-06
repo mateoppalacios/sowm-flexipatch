@@ -190,10 +190,12 @@ void win_center(const Arg arg) {
     if (!cur) return;
 
     win_size(cur->w, &(int){0}, &(int){0}, &ww, &wh);
-    XMoveWindow(d, cur->w, (sw - ww) / 2, (sh - wh) / 2);
 
     #if TITLEBARS_PATCH
-    if (cur->t) XMoveWindow(d, cur->t, (sw - ww) / 2, (sh - wh - TH * 2) / 2);
+    XMoveWindow(d, cur->w, (sw - ww) / 2, (sh - wh + TH) / 2);
+    if (cur->t) XMoveWindow(d, cur->t, (sw - ww) / 2, (sh - wh - TH) / 2);
+    #else
+    XMoveWindow(d, cur->w, (sw - ww) / 2, (sh - wh) / 2);
     #endif
 }
 
