@@ -4,7 +4,7 @@
 #define MOD Mod4Mask
 #if TITLEBARS_PATCH
 #define TH  90
-#define TC  255 + (255<<8) + (255<<16)
+#define TC  0xFFFFFF
 #endif
 
 const char* menu[]    = {"dmenu_run",      0};

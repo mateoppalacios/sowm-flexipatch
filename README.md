@@ -51,6 +51,6 @@ The patches listed below are the ones that are currently included.
 ## Learn More
 
 * [sowm](https://github.com/dylanaraps/sowm)
-* [Original Flexipatch Idea](https://github.com/bakkeby)
+* [Original flexipatch idea.](https://github.com/bakkeby)
 * [What is an X window manager?](https://en.wikipedia.org/wiki/X_window_manager)
 * [What even is patching?](https://www.youtube.com/watch?v=-CiLU9-RAGk)
