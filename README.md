@@ -9,7 +9,7 @@ sowm-flexipatch aims to make the process of patching
 [sowm](https://github.com/dylanaraps/sowm) easier by using preprocessor
 directives to decide which patches get included during build time. Some patches
 have been modified to avoid malfunctions or conflicts with other patches, these
-will have `_mod` appended to their names inside the `patches/` directory.
+will have `-mod` appended to their names inside the `patches/` directory.
 
 ## Usage
 
@@ -36,7 +36,15 @@ The patches listed below are the ones that are currently included.
     <summary>From the <a href="https://github.com/dylanaraps/sowm/pulls">pull requests</a>:</summary>
     <br>
     <ul>
-        <a href="https://github.com/dylanaraps/sowm/pull/57"><li>Titlebars</li></a>
+        <li>
+            <a href="https://github.com/dylanaraps/sowm/pull/57">Titlebars</a>:
+            <p>
+            * Added simple, single color, titlebars.
+            <br>
+            - Windows can be excluded from decoration by having 
+            their class set to 'no-title'.
+            </p>
+        </li>
     </ul>
 </details>
 
