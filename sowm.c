@@ -61,6 +61,29 @@ void title_del(client *c) {
 }
 #endif
 
+#if KB_MOVE_RESIZE_PATCH
+void win_move(const Arg arg) {
+    int  r = arg.com[0][0] == 'r';
+    char m = arg.com[1][0];
+
+    win_size(cur->w, &wx, &wy, &ww, &wh);
+
+    XMoveResizeWindow(d, cur->w,
+        wx + (r ? 0 : m == 'e' ?  arg.i : m == 'w' ? -arg.i : 0),
+        wy + (r ? 0 : m == 'n' ? -arg.i : m == 's' ?  arg.i : 0),
+        MAX(10, ww + (r ? m == 'e' ?  arg.i : m == 'w' ? -arg.i : 0 : 0)),
+        MAX(10, wh + (r ? m == 'n' ? -arg.i : m == 's' ?  arg.i : 0 : 0)));
+
+    #if TITLEBARS_PATCH
+    XMoveResizeWindow(d, cur->t,
+        wx        + (r ? 0 : m == 'e' ?  arg.i : m == 'w' ? -arg.i : 0),
+        (wy - TH) + (r ? 0 : m == 'n' ? -arg.i : m == 's' ?  arg.i : 0),
+        MAX(10, ww + (r ? m == 'e' ?  arg.i : m == 'w' ? -arg.i : 0 : 0)),
+        TH);
+    #endif
+}
+#endif
+
 void win_focus(client *c) {
     cur = c;
     XSetInputFocus(d, cur->w, RevertToParent, CurrentTime);
@@ -82,6 +105,8 @@ void notify_motion(XEvent *e) {
     if (!mouse.subwindow || cur->f) return;
 
     #if TITLEBARS_PATCH
+    XRaiseWindow(d, cur->t);
+
     if (mouse.subwindow == cur->t) {
         mouse.subwindow = cur->w;
         win_size(cur->w, &wx, &wy, &ww, &wh);
@@ -121,6 +146,11 @@ void button_press(XEvent *e) {
 
     win_size(e->xbutton.subwindow, &wx, &wy, &ww, &wh);
     XRaiseWindow(d, e->xbutton.subwindow);
+
+    #if TITLEBARS_PATCH
+    XRaiseWindow(d, cur->t);
+    #endif
+
     mouse = e->xbutton;
 }
 

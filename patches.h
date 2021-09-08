@@ -17,4 +17,13 @@
  */
 #define TITLEBARS_PATCH 0
 
+/*
+ * Keyboard Move/Resize
+ * https://github.com/dylanaraps/sowm/pull/59
+ *
+ * Move window with mod + h,j,k,l
+ * Resize window with mod|shift + h,j,k,l
+ */
+#define KB_MOVE_RESIZE_PATCH 0
+
 #endif

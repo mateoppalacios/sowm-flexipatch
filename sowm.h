@@ -60,6 +60,9 @@ void win_focus(client *c);
 void win_kill(const Arg arg);
 void win_prev(const Arg arg);
 void win_next(const Arg arg);
+#if KB_MOVE_RESIZE_PATCH
+void win_move(const Arg arg);
+#endif
 void win_to_ws(const Arg arg);
 void ws_go(const Arg arg);
 

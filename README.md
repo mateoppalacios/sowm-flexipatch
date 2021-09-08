@@ -1,15 +1,13 @@
 # sowm-flexipatch
 
-A build of sowm that makes it easier to apply patches.
+A build of sowm that takes the pain from patching away.
 
 ## About
 
 Similar to the flexipatch builds made by [bakkeby](https://github.com/bakkeby),
 sowm-flexipatch aims to make the process of patching
 [sowm](https://github.com/dylanaraps/sowm) easier by using preprocessor
-directives to decide which patches get included during build time. Some patches
-have been modified to avoid malfunctions or conflicts with other patches, these
-will have `-mod` appended to their names inside the `patches/` directory.
+directives to decide which patches get included during build time.
 
 ## Usage
 
@@ -22,7 +20,9 @@ To decide which patches get included, the `patches.h` file needs to be modified.
 
 ## Patches
 
-The patches listed below are the ones that are currently included.
+The patches listed below are the ones that are currently included. Some
+have been modified to avoid malfunctions or conflicts between each other, these
+will have `-mod` appended to their names inside the `patches/` directory.
 
 <details>
     <summary>From the (archived) <a href="https://github.com/dylanaraps/sowm-patches">patches repository</a>:</summary>
@@ -43,6 +43,14 @@ The patches listed below are the ones that are currently included.
             <br>
             - Windows can be excluded from decoration by having 
             their class set to 'no-title'.
+            </p>
+        </li>
+        <li>
+            <a href="https://github.com/dylanaraps/sowm/pull/59">Keyboard Move/Resize</a>:
+            <p>
+            * Move window with mod + h,j,k,l
+            <br>
+            * Resize window with mod|shift + h,j,k,l
             </p>
         </li>
     </ul>
